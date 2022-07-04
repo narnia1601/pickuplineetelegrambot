@@ -1,7 +1,12 @@
 import telebot
 import random
+import os
+from dotenv import load_dotenv
 
-bot = telebot.TeleBot('5414710410:AAHIn7GcUXxrK8XTeR_cHwxHybNMvmSvMiQ')
+load_dotenv()
+token = os.getenv('TOKEN')
+
+bot = telebot.TeleBot(token)
 
 generatedLines = []
 
