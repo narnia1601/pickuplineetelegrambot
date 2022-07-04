@@ -1,5 +1,9 @@
 from bs4 import BeautifulSoup
 import requests
+import spacy
+import re
+import markovify
+import string
 
 class PickupLine:
     def __init__(self):
@@ -40,7 +44,3 @@ class PickupLine:
                 for line in soup.find_all('td', class_='column-1'):
                     text = line.text
                     self.writeLines(f, text)
-
-test = PickupLine()
-test.getPickupLines()
-print('Web Scraping completed')

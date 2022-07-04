@@ -37,7 +37,8 @@ def separate_punc(text):
             word = ''
     return word_arr
 
-text = read_file('Holidayfile.txt')
+text = read_file('linefile.txt')
+text = text[:300000]
 
 tokens = separate_punc(text)
 
@@ -111,7 +112,7 @@ model.add(Dense(vocabulary_size,activation='softmax'))
 adam = Adam(0.001)
 model.compile(optimizer=adam, loss='categorical_crossentropy')
 
-model.fit(X_train,y_train,epochs=100, batch_size=32,verbose=1, validation_data=(X_test,y_test))
+model.fit(X_train,y_train,epochs=600, batch_size=32,verbose=1)
 
 def generate_text(model,tokenizer,seq_len,seed_text,num_gen_words):
     output_text = []
